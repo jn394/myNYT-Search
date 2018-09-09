@@ -1,0 +1,15 @@
+.jumbotron {
+    background-color: #000080;
+    text-align: center;
+    color: white;
+    width: 97.5%;
+    margin-left: 1.2%;
+}
+
+.button {
+    margin-top: 10px;
+}
+
+.panel-heading {
+    background-color: #ececec;
+}

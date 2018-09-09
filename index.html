@@ -1,0 +1,78 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>NYT Search</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="../NYT-Search/assets/CSS/styles.css" />
+    <script src="../NYT-Search/assets/JavaScript/script.js"></script>
+</head>
+
+<body>
+        <div class="container">
+            <div class = "row">
+                <div class="jumbotron">
+                <h2><div class="glyphicon glyphicon-globe"></div><strong>  New York Times Keyword Search</strong></h2> 
+                <p>Browse the New York Times using this App</p> 
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <form>
+                    <div class="panel-heading">
+                        <p><div class="glyphicon glyphicon-list"></div><strong>  Search Parameters</strong></p>
+                    </div>
+                    
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Search Terms</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleSelect1">Number of Records to Retrieve</label>
+                            <select class="form-control" id="exampleSelect1">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                                <label for="exampleInputPassword1">Start Year:</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Optional">
+                        </div>
+
+                        <div class="form-group">
+                                <label for="exampleInputPassword1">End Year:</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Optional">
+                        </div>
+
+                        <button type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-search"></span> Search
+                        </button>
+
+                        <button type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-trash"></span> Clear Results
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <form>
+                <div class="panel panel-default">
+                        <div class="panel-heading"><div class="glyphicon glyphicon-list"></div><strong>  Top Articles</strong></div>
+                        <div class="panel-body" id="searchResults">Panel Content</div>
+                </div>
+            </form>
+        </div>
+
+</body>
+</html>
