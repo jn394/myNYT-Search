@@ -1,78 +1,87 @@
 <!DOCTYPE <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>NYT Search</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous" defer></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous" defer></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Oranienbaum|Halant" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="../NYT-Search/assets/CSS/styles.css" />
-    <script src="../NYT-Search/assets/JavaScript/script.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/CSS/styles.css" />
+    <script src="assets/JavaScript/script.js"></script>
 </head>
 
 <body>
-        <div class="container">
-            <div class = "row">
-                <div class="jumbotron">
-                <h2><div class="glyphicon glyphicon-globe"></div><strong>  New York Times Keyword Search</strong></h2> 
-                <p>Browse the New York Times using this App</p> 
-                </div>
-            </div>
-
-            <div class="panel panel-default">
-                <form>
-                    <div class="panel-heading">
-                        <p><div class="glyphicon glyphicon-list"></div><strong>  Search Parameters</strong></p>
+    <div class="container-fluid">
+        <div class="row d-flex d-md-block flex-nowrap wrapper textColor">
+            <div class="col-md-2 float-left col-1 pl-0 pr-0 collapse width show" id="sidebar">
+                <div class="list-group border-0 text-center text-md-left p-2">
+                    <h4 id="" class="text-center"><i class="fa fa-book" aria-hidden="true"></i>
+                        <span class="d-none d-md-inline">Article Search</span></h4>
+                    <div class="form-group list-group-item">
+                        <label for="searchText"><span class="d-none d-md-inline">Search Terms</span></label>
+                        <input type="text" class="form-control" id="searchText">
                     </div>
-                    
-                    <div class="panel-body">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Search Terms</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="exampleSelect1">Number of Records to Retrieve</label>
-                            <select class="form-control" id="exampleSelect1">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                                <label for="exampleInputPassword1">Start Year:</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Optional">
-                        </div>
-
-                        <div class="form-group">
-                                <label for="exampleInputPassword1">End Year:</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Optional">
-                        </div>
-
-                        <button type="button" class="btn btn-default">
-                            <span class="glyphicon glyphicon-search"></span> Search
-                        </button>
-
-                        <button type="button" class="btn btn-default">
-                            <span class="glyphicon glyphicon-trash"></span> Clear Results
-                        </button>
+                    <div class="form-group list-group-item">
+                        <label for="numRecords"><span class="d-none d-md-inline">Number of Records</span></label>
+                        <select class="form-control" id="numRecords">
+                            <option>10</option>
+                            <option>20</option>
+                            <option>30</option>
+                            <option>40</option>
+                            <option>50</option>
+                        </select>
                     </div>
-                </form>
-            </div>
 
-            <form>
-                <div class="panel panel-default">
-                        <div class="panel-heading"><div class="glyphicon glyphicon-list"></div><strong>  Top Articles</strong></div>
-                        <div class="panel-body" id="searchResults">Panel Content</div>
+                    <div class="form-group list-group-item">
+                        <label for="startYear"><span class="d-none d-md-inline">Start Year:</span></label>
+                        <input type="number" class="form-control" id="startYear" placeholder="Optional">
+                    </div>
+
+                    <div class="form-group list-group-item">
+                        <label for="endYear"><span class="d-none d-md-inline">End Year:</span></label>
+                        <input type="number" class="form-control" id="endYear" placeholder="Optional">
+                    </div>
+
+                    <button id="search-button" type="button" class="btn btn-default list-group-button">
+                        <i class="fa fa-search" aria-hidden="true"></i><span class="d-none d-md-inline">Search</span>
+                    </button>
+
+                    <button id="clear-button" type="button" class="btn btn-default list-group-button">
+                        <i class="fa fa-trash" aria-hidden="true"></i><span class="d-none d-md-inline">
+                            Clear Results</span>
+                    </button>
                 </div>
-            </form>
+
+            </div>
         </div>
-
+        <main class="col-md-10 float-left col px-5 pl-md-2 pt-2 main">
+            <a href="#" data-target="#sidebar" data-toggle="collapse"><i class="fa fa-bars" aria-hidden="true"></i></a>
+            <div class="page-header">
+                <h1 id="title"> New York Times Keyword Search</h1>
+            </div>
+            <p class="lead">Browse the New York Times using this App</p>
+            <hr>
+            <div class="row">
+                <div id="searchResults" class="ml-3"></div>
+            </div>
+        </main>
+    </div>
 </body>
+
 </html>

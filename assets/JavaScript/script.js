@@ -1,51 +1,104 @@
-$(document).ready(function(){
+$(document).ready(function () {
 
-var q = "cheese";
-var recordNum = 5;
-var startYear = 2012;
-var endYear = 2018;
+  $("#search-button").on("click", function () {
 
-var pageNum= Math.ceil(recordNum/10);
+    $("#searchResults").empty();
 
+    var searchTerm = $("#searchText").val();
+    var recordNum = $("#numRecords").val();
+    var startYear = $("#startYear").val();
+    var endYear = $("#endYear").val();
 
-var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
-url += '?' + $.param({
-  'api-key': "ba94153be5714a3fbd0b2d81410657ba",
-  'q':  q,
-  'begin_date': startYear + "0101",
-  'end_date': endYear + "1231",
-  'page': 1
-});
+    var pageNum = Math.ceil(recordNum / 10);
+    var count = 0;
 
 
+    console.log($("#searchText").val());
+    console.log($("#startYear").val());
+    console.log($("#endYear").val());
+    console.log($("#numRecords").val());
+    console.log(pageNum);
 
-$.ajax({
-  url: url,
-  method: 'GET',
-}).done(function(result) {
-  console.log(result);
+    function sYear() {
+      if ($("#startYear").val() === "") {
+        startYear = "1991";
+      }
+    }
 
-  var res = result.response.docs
+    sYear();
 
-  for(var i = 0; i < recordNum; i++){
+    function eYear() {
+      if ($("#endYear").val() === "") {
+        endYear = "2018";
+      }
+    }
 
-  $("#searchResults").append(
-  
-    "<br> <div> Headline: " + res[i].headline.main +
+    eYear();
 
-    "<br> Snippit: " + res[i].snippet +
+    console.log(startYear);
+    console.log(endYear);
 
-    "<br> Link: <a target='_blank' href=" + res[i].web_url + ">" + res[i].web_url + "</a> </div>" 
+    $("#searchText").val("");
+    $("#startYear").val("");
+    $("#endYear").val("");
 
-    // "<br><img src=" + res[i].multimedia.url + ">"
+    for (var i = 0; i < pageNum ; i++){
+    var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+    url += '?' + $.param({
+      'api-key': "29d76fe43ea8461e9ce391c77e04cfc4",
+      'q': searchTerm,
+      'begin_date': startYear + "0101",
+      'end_date': endYear + "1231",
+      'page': i
+    });
 
-)
+    $.ajax({
+      url: url,
+      method: 'GET',
+    }).done(function (result) {
+      console.log(result);
 
+      var res = result.response.docs
+
+      for (var j = 0; j <= 10; j++) {
+
+        count++
+
+        $("#searchResults").append(
+
+          "<br> <div id='entry' class='p-2 rounded' href=" + res[j].web_url + "> Count: " + count +
+
+          "<br> <h2 id='entryHead'>" + res[j].headline.main + "</h2>" +
+
+          "<br> <p id='entryBody'>" + res[j].snippet + "</p>" +
+
+          "<br> <p id='entryLink'> Link: <a target='_blank' href=" + res[j].web_url + ">" + res[j].web_url + "</a> </p> </div><hr>"
+
+          // "<br><img src=" + res[i].multimedia.url + ">"
+
+        )
+
+      };
+      
+     
+    }).fail(function (err) {
+      throw err;
+    });
   };
 
+ $("#entry").on("click",function () {
+        console.log("got clicked");
+        // window.location = $(this).find("a").attr("href"); 
+        window.open("https://www.google.com/"); 
+    // window.open($(this).attr("href"), '_blank');
+  });
 
-}).fail(function(err) {
-  throw err;
-});
 
+
+  });
+
+  $("#clear-button").on("click", function () {
+    $("#searchResults").empty();
+  })
+  
 });
