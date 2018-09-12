@@ -3,9 +3,16 @@
     color: #ccc;
 }
 
+.main {
+    float: right;
+    width: 85%;
+}
+
 #sidebar {
     overflow: hidden;
     z-index: 3;
+    position: fixed;
+    height: 100%;
 }
 #sidebar .list-group {
     min-width: 100px;
