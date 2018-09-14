@@ -57,9 +57,15 @@
     text-align: center;
 }
 
+#entryBlock {
+    color: black;
+    display: block;
+    text-decoration: none;
+}
+
 #entry{
     line-height: 20px;
-    margin-top: -20px;
+    margin-top: -30px;
 }
 
 #entry:hover {
@@ -70,10 +76,11 @@
 #entryHead {
     font-family: 'Halant', serif;
     padding-left: 10px;
+    margin-top: -20px;
     margin-bottom: 0px;
 }
 
-#entryBody {
+.entryBody {
     font-family: 'Open Sans', sans-serif;
     font-style: italic;
     margin-left: 0;

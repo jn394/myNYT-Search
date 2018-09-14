@@ -66,16 +66,15 @@ $(document).ready(function () {
 
           $("#searchResults").append(
 
-            "<br> <div id='entry' class='p-2 rounded' href=" + res[j].web_url + "> Count: " + count +
+            "<br> <a id='entryBlock' target='_blank'href=" + res[j].web_url + "><div id='entry' class='p-2 rounded' href=" + res[j].web_url + ">" +
 
             "<br> <h2 id='entryHead'>" + res[j].headline.main + "</h2>" +
 
-            "<br> <p id='entryBody'>" + res[j].snippet + "</p>" +
+            "<br> <p class='entryBody'> Date: " + res[j].pub_date.substring(0, res[j].pub_date.indexOf('T')) + "</p>" +
 
-            "<br> <p id='entryLink'> Link: <a target='_blank' href=" + res[j].web_url + ">" + res[j].web_url + "</a> </p> </div><hr>"
+            "<br> <p class='entryBody'>" + res[j].snippet + "</p></div></a>" +
 
-            // "<br><img src=" + res[i].multimedia.url + ">"
-
+            "<hr>"
           )
 
         };
@@ -86,7 +85,8 @@ $(document).ready(function () {
       });
     };
 
-    $("#entry").on("click", function () {
+    //Put into an anchor tag
+    $("#entryBlock").on("click", function () {
       console.log("got clicked");
       // window.location = $(this).find("a").attr("href"); 
       window.open("https://www.google.com/");
